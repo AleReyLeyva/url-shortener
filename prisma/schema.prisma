@@ -10,3 +10,11 @@ generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["mongoDb"]
 }
+
+model Link {
+  id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  URL String @unique 
+  shortURL String @unique
+  createdAt DateTime @default(now())
+}
+
